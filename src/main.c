@@ -10,7 +10,7 @@ char space[n][n];
 char show_space[n][n];
 
 void initiation_show_space() {
-    char a='0';
+    char a='1';
     for(int i=0; i<n; i++) {
         for(int j=0; j<n; j++) {
             show_space[i][j]=a;
@@ -21,7 +21,7 @@ void initiation_show_space() {
 
 void initiation() {
 
-    char a='0';
+    char a='1';
     for(int i=0; i<n; i++) {
         for(int j=0; j<n; j++) {
             space[i][j]=a;
@@ -91,7 +91,7 @@ int enter_value(int choice_1, int choice_2) {
         }
     
         switch(holder) {
-        case 0: {
+        case 1: {
             if(space[0][0] == 'X' || space[0][0] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
@@ -99,7 +99,7 @@ int enter_value(int choice_1, int choice_2) {
             space[0][0]=mark;
             break;
         }
-        case 1: {
+        case 2: {
             if(space[0][1] == 'X' || space[0][1] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
@@ -107,7 +107,7 @@ int enter_value(int choice_1, int choice_2) {
             space[0][1]=mark;
             break;
         }
-        case 2: {
+        case 3: {
             if(space[0][2] == 'X' || space[0][2] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
@@ -115,7 +115,7 @@ int enter_value(int choice_1, int choice_2) {
             space[0][2]=mark;
             break;
         }
-        case 3: {
+        case 4: {
             if(space[1][0] == 'X' || space[1][0] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
@@ -123,7 +123,7 @@ int enter_value(int choice_1, int choice_2) {
             space[1][0]=mark;
             break;
         }
-        case 4: {
+        case 5: {
             if(space[1][1] == 'X' || space[1][1] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
@@ -131,7 +131,7 @@ int enter_value(int choice_1, int choice_2) {
             space[1][1]=mark;
             break;
         }
-        case 5: {
+        case 6: {
             if(space[1][2] == 'X' || space[1][2] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
@@ -139,7 +139,7 @@ int enter_value(int choice_1, int choice_2) {
             space[1][2]=mark;
             break;
         }
-        case 6: {
+        case 7: {
             if(space[2][0] == 'X' || space[2][0] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
@@ -147,7 +147,7 @@ int enter_value(int choice_1, int choice_2) {
             space[2][0]=mark;
             break;
         }
-        case 7: {
+        case 8: {
             if(space[2][1] == 'X' || space[2][1] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
@@ -155,7 +155,7 @@ int enter_value(int choice_1, int choice_2) {
             space[2][1]=mark;
             break;
         }
-        case 8: {
+        case 9: {
             if(space[2][2] == 'X' || space[2][2] == 'O') {
                 printf("Pole zajete!\nWprowadz wartosc jeszcze raz!\n");
                 return 1;
