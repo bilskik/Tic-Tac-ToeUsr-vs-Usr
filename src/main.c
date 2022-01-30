@@ -9,6 +9,7 @@
 char space[n][n];
 char show_space[n][n];
 
+//initiation a show_space[][] from 1 to 9
 void initiation_show_space() {
     char a='1';
     for(int i=0; i<n; i++) {
@@ -19,6 +20,7 @@ void initiation_show_space() {
     }
 }
 
+//initiation a space[][] from 1 to 9
 void initiation() {
 
     char a='1';
@@ -30,15 +32,7 @@ void initiation() {
     }
 }
 
-void show() {
-
-    printf("\t\t    |   |   \n");
-    printf("\t\t ___|___|___  \n");
-    printf("\t\t    |   |     \n");
-    printf("\t\t____|___|___\n");
-    printf("\t\t    |   |   \n");
-    printf("\t\t    |   |   \n");
-}
+//help (how to play):
 
 void show_numbers() {
     printf("\t\t   %c|  %c| %c\n",show_space[0][0], show_space[0][1], show_space[0][2]);
@@ -48,6 +42,7 @@ void show_numbers() {
     printf("\t\t   %c|  %c|%c   \n",show_space[2][0], show_space[2][1], show_space[2][2]);
     printf("\t\t    |   |   \n");
 }
+// an actual state of map
 void map() {
 
     char printer[n][n];
@@ -69,6 +64,7 @@ void map() {
     printf("\t\t    |   |   \n");
 }
 
+//instruction
 void instruction(char *player_1_name, char *player_2_name) {
     printf("Zaczyna gracz %s\n", player_1_name);
     printf("Jego zadaniem jest wprowadzenie odpowiedniego numeru, tam gdzie chce postawic 'X'\n");
@@ -77,6 +73,9 @@ void instruction(char *player_1_name, char *player_2_name) {
     show_numbers();
     
 }
+
+//entering values to space[][]
+
 int enter_value(int choice_1, int choice_2) {
 
         int holder;
@@ -172,7 +171,7 @@ int enter_value(int choice_1, int choice_2) {
     }
     return 0;
 }
-
+//looking for solution
 int look_for_sol(char mark) {
 
     int winning_counter_row=0;
@@ -221,6 +220,7 @@ int look_for_sol(char mark) {
     return 0;
 
 }
+//looking for draw
 int look_for_draw(char mark_1, char mark_2) {
     int mark_counter=0;
     for(int i=0; i<n; i++) {
@@ -275,7 +275,7 @@ int main(int argc, char **argv) {
         map();
         
         printf("Ruch wykonuje gracz: %s \n", player_1_name);
-        while(1) {
+        while(1) {                                             //entering a move (player 1)
             player_2_choice=-1;
             scanf("%d", &player_1_choice);
             a=enter_value(player_1_choice, player_2_choice);
@@ -284,7 +284,7 @@ int main(int argc, char **argv) {
         }
         map();
         final_state=look_for_sol('X');
-         if(final_state == 1) {
+         if(final_state == 1) {                 //if player 1 is winning
              printf("Gratulacje dla %s za zwyciestwo w tej rundzie!\n", player_1_name);
              games_counter=1;
              counter_of_points_player_1++;
@@ -298,7 +298,7 @@ int main(int argc, char **argv) {
                 break;
             
          }
-         else {
+         else {                                 //if draw
             tmp_draw=look_for_draw('X', 'O');
             if(tmp_draw == 0) {
                 printf("Remis!!\n");
@@ -317,7 +317,7 @@ int main(int argc, char **argv) {
         
 
         printf("Ruch wykonuje gracz: %s: \n", player_2_name);
-        while(1) {
+        while(1) {                                                         //entering a move (player 2)
             player_1_choice = -1;
             scanf("%d", &player_2_choice);
             a=enter_value(player_1_choice, player_2_choice);
@@ -327,7 +327,7 @@ int main(int argc, char **argv) {
         map();
         
         final_state=look_for_sol('O');
-        if(final_state == 1) {
+        if(final_state == 1) {                                            //if player 2 is winning 
             printf("Gratulacje dla %s za zwyciestwo w tej rundzie!\n", player_2_name);
             games_counter=1;
             counter_of_points_player_2++;
@@ -341,7 +341,7 @@ int main(int argc, char **argv) {
                 break;
         }
         else {
-            tmp_draw=look_for_draw('X', 'O');
+            tmp_draw=look_for_draw('X', 'O');    //if draw
             if(tmp_draw == 0) {
                 printf("Remis!!\n");
                 counter_of_points_player_2++;
@@ -359,6 +359,8 @@ int main(int argc, char **argv) {
        
     }
 
+    //printing a results of game
+    
     if(counter_of_points_player_1 > counter_of_points_player_2) {
         printf("Gre wygrywa gracz %s z liczba punktow: %d \nGRATULACJE!!!\n", player_1_name, counter_of_points_player_1);
         printf("Gracz %s zdobyl %d punktow\n", player_2_name, counter_of_points_player_2);
